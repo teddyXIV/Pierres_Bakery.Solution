@@ -47,11 +47,12 @@ namespace Pierres_Bakery.Tests
         }
 
         [TestMethod]
-        public void CalculatePrice_ReturnsCroissantOfOrder_Int()
+        public void CalculatePrice_ReturnsCroissantOfOrder_Float()
         {
-            Pastry pastry = new(8, 0, 0);
-            int expected = 12;
-            Assert.AreEqual(expected, pastry.CalculatePrice(pastry.DonutNum, 2, 4));
+            Pastry pastry = new(0, 2, 0);
+            float expected = 6;
+            Assert.AreEqual(expected, pastry.CalculatePrice(pastry.CroissantNum, 4, 0.5f));
         }
+
     }
 }
