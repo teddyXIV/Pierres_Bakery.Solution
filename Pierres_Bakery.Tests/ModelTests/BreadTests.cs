@@ -14,20 +14,20 @@ public class UnitTest1
     }
 
     [TestMethod]
-    public void GetNum_ReturnsValueOfNum_Int()
+    public void GetNum_ReturnsValueOfBreadNum_Int()
     {
         Bread bread = new(1);
         int expected = 1;
-        Assert.AreEqual(expected, bread.Num);
+        Assert.AreEqual(expected, bread.BreadNum);
     }
 
     [TestMethod]
-    public void SettNum_SetsValueOfNum_Void()
+    public void SettNum_SetsValueOfBreadNum_Void()
     {
         Bread bread = new(1);
-        bread.Num = 2;
+        bread.BreadNum = 2;
         int expected = 2;
-        Assert.AreEqual(expected, bread.Num);
+        Assert.AreEqual(expected, bread.BreadNum);
     }
 
     [TestMethod]
@@ -35,7 +35,7 @@ public class UnitTest1
     {
         Bread bread = new(5);
         int expected = 20;
-        Assert.AreEqual(expected, bread.CalculatePrice());
+        Assert.AreEqual(expected, bread.CalculatePrice(bread.BreadNum, 5, 3));
     }
 
 }

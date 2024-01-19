@@ -8,7 +8,7 @@ namespace Pierres_Bakery.Tests
         [TestMethod]
         public void PastryConstructor_CreatesInstancsOfPastryClass_Pastry()
         {
-            Pastry pastry = new(1);
+            Pastry pastry = new(1, 2, 3);
             Assert.AreEqual(typeof(Pastry), pastry.GetType());
 
         }
@@ -16,26 +16,34 @@ namespace Pierres_Bakery.Tests
         [TestMethod]
         public void PastryGet_ReturnsNumValue_Int()
         {
-            Pastry pastry = new(1);
-            int expected = 1;
-            Assert.AreEqual(expected, pastry.Num);
+            Pastry pastry = new(1, 2, 3);
+            int donutExpected = 1;
+            int croissantExpected = 2;
+            int fritterExpected = 3;
+            Assert.AreEqual(donutExpected, pastry.DonutNum);
+            Assert.AreEqual(croissantExpected, pastry.CroissantNum);
+            Assert.AreEqual(fritterExpected, pastry.FritterNum);
         }
 
         [TestMethod]
         public void PastrySet_SetsNumValue_Void()
         {
-            Pastry pastry = new(1);
-            pastry.Num = 2;
-            int expected = 2;
-            Assert.AreEqual(expected, pastry.Num);
+            Pastry pastry = new(1, 2, 3);
+            pastry.DonutNum = 4;
+            pastry.CroissantNum = 4;
+            pastry.FritterNum = 4;
+            int expected = 4;
+            Assert.AreEqual(expected, pastry.DonutNum);
+            Assert.AreEqual(expected, pastry.CroissantNum);
+            Assert.AreEqual(expected, pastry.FritterNum);
         }
 
         [TestMethod]
         public void CalculatePrice_ReturnsPriceOfOrder_Int()
         {
-            Pastry pastry = new(8);
+            Pastry pastry = new(8, 0, 0);
             int expected = 12;
-            Assert.AreEqual(expected, pastry.CalculatePrice(4));
+            Assert.AreEqual(expected, pastry.CalculatePrice(pastry.DonutNum, 2, 4));
         }
     }
 }

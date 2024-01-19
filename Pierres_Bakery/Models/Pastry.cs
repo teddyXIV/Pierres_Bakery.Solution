@@ -1,17 +1,17 @@
 namespace Pierres_Bakery.Models
 {
-    public class Pastry
+    public class Pastry : BakedGood
     {
-        public int Num { get; set; }
+        public int DonutNum { get; set; }
+        public int CroissantNum { get; set; }
+        public int FritterNum { get; set; }
 
-        public Pastry(int num)
+        public Pastry(int donut, int croissant, int fritter)
         {
-            Num = num;
+            DonutNum = donut;
+            CroissantNum = croissant;
+            FritterNum = fritter;
         }
 
-        public int CalculatePrice(int freeItem)
-        {
-            return (Num * 2) - ((this.Num / freeItem) * 2);
-        }
     }
 }
