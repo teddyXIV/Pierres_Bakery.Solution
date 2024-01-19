@@ -13,4 +13,12 @@ public class UnitTest1
 
     }
 
+    [TestMethod]
+    public void GetNum_ReturnsValueOfNum_Int()
+    {
+        Bread bread = new(1);
+        int expected = 1;
+        Assert.AreEqual(expected, bread.Num);
+    }
+
 }
