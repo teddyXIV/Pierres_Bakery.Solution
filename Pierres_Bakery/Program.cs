@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Pierres_Bakery.Models;
+
+namespace Pierres_Bakery
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+    }
+}
