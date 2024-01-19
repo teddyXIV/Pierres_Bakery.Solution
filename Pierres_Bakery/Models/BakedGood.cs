@@ -9,7 +9,7 @@ namespace Pierres_Bakery.Models
 
         public static float CalculatePrice(int itemNum, int price, int discountedItem, float discount)
         {
-            return (itemNum * price) - (itemNum / discountedItem * (price * discount));
+            return ((float)itemNum * price) - ((float)itemNum / discountedItem * (price * discount));
         }
     }
 }

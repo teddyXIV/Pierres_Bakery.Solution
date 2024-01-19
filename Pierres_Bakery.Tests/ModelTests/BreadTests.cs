@@ -46,4 +46,12 @@ public class UnitTest1
         Assert.AreEqual(expected, Bread.CalculatePrice(bread.SourdoughNum, 5, 3));
     }
 
+    [TestMethod]
+    public void CalculatePrice_CalculatesPriceOfFocacciaWithOverload_Float()
+    {
+        Bread bread = new(0, 8, 0);
+        int expected = 26;
+        Assert.AreEqual(expected, Bread.CalculatePrice(bread.FocacciaNum, 4, 4, 0.75f));
+    }
+
 }
