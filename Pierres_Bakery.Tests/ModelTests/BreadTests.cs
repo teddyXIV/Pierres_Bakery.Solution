@@ -22,7 +22,7 @@ public class UnitTest1
     }
 
     [TestMethod]
-    public void SettNum_SetsValueOfNum_Int()
+    public void SettNum_SetsValueOfNum_Void()
     {
         Bread bread = new(1);
         bread.Num = 2;

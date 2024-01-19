@@ -20,5 +20,15 @@ namespace Pierres_Bakery.Tests
             int expected = 1;
             Assert.AreEqual(expected, pastry.Num);
         }
+
+        [TestMethod]
+        public void PastrySet_SetsNumValue_Void()
+        {
+            Pastry pastry = new(1);
+            pastry.Num = 2;
+            int expected = 2;
+            Assert.AreEqual(expected, pastry.Num);
+
+        }
     }
 }
