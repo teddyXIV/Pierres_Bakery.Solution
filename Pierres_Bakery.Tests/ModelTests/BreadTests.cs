@@ -21,4 +21,13 @@ public class UnitTest1
         Assert.AreEqual(expected, bread.Num);
     }
 
+    [TestMethod]
+    public void SettNum_SetsValueOfNum_Int()
+    {
+        Bread bread = new(1);
+        bread.Num = 2;
+        int expected = 2;
+        Assert.AreEqual(expected, bread.Num);
+    }
+
 }
