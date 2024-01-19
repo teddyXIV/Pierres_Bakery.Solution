@@ -9,6 +9,9 @@ namespace Pierres_Bakery.Models
             Num = num;
         }
 
-
+        public int CalculatePrice(int freeItem)
+        {
+            return (Num * 2) - ((this.Num / freeItem) * 2);
+        }
     }
 }

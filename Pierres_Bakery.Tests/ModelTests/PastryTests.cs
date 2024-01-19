@@ -28,7 +28,14 @@ namespace Pierres_Bakery.Tests
             pastry.Num = 2;
             int expected = 2;
             Assert.AreEqual(expected, pastry.Num);
+        }
 
+        [TestMethod]
+        public void CalculatePrice_ReturnsPriceOfOrder_Int()
+        {
+            Pastry pastry = new(8);
+            int expected = 12;
+            Assert.AreEqual(expected, pastry.CalculatePrice(4));
         }
     }
 }
