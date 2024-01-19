@@ -2,12 +2,16 @@ namespace Pierres_Bakery.Models
 {
     public class Bread : BakedGood
     {
-        public int BreadNum { get; set; }
+        public int SourdoughNum { get; set; }
+        public int FocacciaNum { get; set; }
+        public int CiabattaNum { get; set; }
 
 
-        public Bread(int num)
+        public Bread(int sourdough, int focaccia, int ciabatta)
         {
-            BreadNum = num;
+            SourdoughNum = sourdough;
+            FocacciaNum = focaccia;
+            CiabattaNum = ciabatta;
         }
 
     }
