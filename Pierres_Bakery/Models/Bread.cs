@@ -9,5 +9,11 @@ namespace Pierres_Bakery.Models
         {
             Num = num;
         }
+
+        public int CalculatePrice()
+        {
+            return (this.Num * 5) - ((this.Num / 3) * 5);
+        }
+
     }
 }

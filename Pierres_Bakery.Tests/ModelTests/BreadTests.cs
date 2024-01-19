@@ -30,4 +30,12 @@ public class UnitTest1
         Assert.AreEqual(expected, bread.Num);
     }
 
+    [TestMethod]
+    public void CalculatePrice_CalculatesPriceOfOrder_Int()
+    {
+        Bread bread = new(5);
+        int expected = 20;
+        Assert.AreEqual(expected, bread.CalculatePrice());
+    }
+
 }
