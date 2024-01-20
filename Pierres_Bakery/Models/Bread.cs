@@ -4,14 +4,14 @@ namespace Pierres_Bakery.Models
     {
         public int SourdoughNum { get; set; }
         public int FocacciaNum { get; set; }
-        public int CiabattaNum { get; set; }
+        public int RyeNum { get; set; }
 
 
-        public Bread(int sourdough, int focaccia, int ciabatta)
+        public Bread(int sourdough, int focaccia, int Rye)
         {
             SourdoughNum = sourdough;
             FocacciaNum = focaccia;
-            CiabattaNum = ciabatta;
+            RyeNum = Rye;
         }
 
     }

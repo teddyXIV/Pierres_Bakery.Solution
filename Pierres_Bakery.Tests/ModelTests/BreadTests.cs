@@ -19,10 +19,10 @@ public class UnitTest1
         Bread bread = new(1, 2, 3);
         int sourdoughExpected = 1;
         int focacciaExpected = 2;
-        int ciabattaExpected = 3;
+        int RyeExpected = 3;
         Assert.AreEqual(sourdoughExpected, bread.SourdoughNum);
         Assert.AreEqual(focacciaExpected, bread.FocacciaNum);
-        Assert.AreEqual(ciabattaExpected, bread.CiabattaNum);
+        Assert.AreEqual(RyeExpected, bread.RyeNum);
     }
 
     [TestMethod]
@@ -31,11 +31,11 @@ public class UnitTest1
         Bread bread = new(1, 2, 3);
         bread.SourdoughNum = 4;
         bread.FocacciaNum = 4;
-        bread.CiabattaNum = 4;
+        bread.RyeNum = 4;
         int expected = 4;
         Assert.AreEqual(expected, bread.SourdoughNum);
         Assert.AreEqual(expected, bread.FocacciaNum);
-        Assert.AreEqual(expected, bread.CiabattaNum);
+        Assert.AreEqual(expected, bread.RyeNum);
     }
 
     [TestMethod]
