@@ -4,13 +4,11 @@ namespace Pierres_Bakery.Models
     {
         public int DonutNum { get; set; }
         public int CroissantNum { get; set; }
-        public int FritterNum { get; set; }
 
-        public Pastry(int donut, int croissant, int fritter)
+        public Pastry(int donut, int croissant)
         {
             DonutNum = donut;
             CroissantNum = croissant;
-            FritterNum = fritter;
         }
 
     }

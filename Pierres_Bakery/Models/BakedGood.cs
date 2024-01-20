@@ -2,9 +2,9 @@ namespace Pierres_Bakery.Models
 {
     public abstract class BakedGood
     {
-        public static int CalculatePrice(int itemNum, int price, int discount)
+        public static int CalculatePrice(int itemNum, int price, int discountedItem)
         {
-            return (itemNum * price) - (itemNum / discount * price);
+            return (itemNum * price) - (itemNum / discountedItem * price);
         }
 
         public static float CalculatePrice(int itemNum, int price, int discountedItem, float discount)
