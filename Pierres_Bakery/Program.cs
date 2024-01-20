@@ -44,34 +44,7 @@ namespace Pierres_Bakery
                     Bread breadOrder = new(sourdoughAmount, focacciaAmount);
                     Pastry pastryOrder = new(donutAmount, croissantAmount);
 
-                    Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~");
-                    Console.WriteLine("Your have ordered the following:");
-                    Console.WriteLine($"{breadOrder.SourdoughNum} loaves of sourdough.");
-                    Console.WriteLine($"{breadOrder.FocacciaNum} loaves of focaccia.");
-                    Console.WriteLine($"{pastryOrder.DonutNum} donuts.");
-                    Console.WriteLine($"{pastryOrder.CroissantNum} croissants.");
-                    Console.WriteLine("Does this look correct? (Type 'y' for yes, 'n' to correct your order, or press any other key to cancel your order.)");
-                    string choice = Console.ReadLine();
-
-                    if (choice.ToUpper() == "Y")
-                    {
-                        float breadPrice = Bread.CalculatePrice(breadOrder.SourdoughNum, 5, 3) + Bread.CalculatePrice(breadOrder.FocacciaNum, 4, 4, 0.75f);
-                        float pastryPrice = Pastry.CalculatePrice(pastryOrder.DonutNum, 2, 4) + Pastry.CalculatePrice(pastryOrder.CroissantNum, 4, 3, 0.5f);
-
-                        Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~e");
-                        Console.WriteLine($"Your bread order comes out to ${breadPrice} and your pastry order comes out to ${pastryPrice}.");
-                        Console.WriteLine("This brings you to a grand total of...");
-                        Console.WriteLine($"${breadPrice + pastryPrice}");
-                        Exit();
-                    }
-                    else if (choice.ToUpper() == "N")
-                    {
-                        PlaceOrder();
-                    }
-                    else
-                    {
-                        Exit();
-                    }
+                    ConfirmOrder(breadOrder, pastryOrder);
                 }
                 catch
                 {
@@ -80,9 +53,73 @@ namespace Pierres_Bakery
                 }
             }
 
+            static void ConfirmOrder(Bread breadOrder, Pastry pastryOrder)
+            {
+                Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~");
+                Console.WriteLine("Your have ordered the following:");
+                Console.WriteLine($"{breadOrder.SourdoughNum} loaves of sourdough.");
+                Console.WriteLine($"{breadOrder.FocacciaNum} loaves of focaccia.");
+                Console.WriteLine($"{pastryOrder.DonutNum} donuts.");
+                Console.WriteLine($"{pastryOrder.CroissantNum} croissants.");
+                Console.WriteLine("Does this look correct? (Type 'y' for yes, 'n' to correct your order, or press any other key to cancel your order.)");
+                string choice = Console.ReadLine();
+
+                if (choice.ToUpper() == "Y")
+                {
+                    GetTotal(breadOrder, pastryOrder);
+                }
+                else if (choice.ToUpper() == "N")
+                {
+                    Console.WriteLine("How many sourdough loaves would you like?");
+                    string newSourdough = Console.ReadLine();
+                    Console.WriteLine("How many focaccia loaves would you like?");
+                    string newFocaccia = Console.ReadLine();
+                    Console.WriteLine("How many donuts would you like?");
+                    string newDonut = Console.ReadLine();
+                    Console.WriteLine("How many croissants loaves would you like?");
+                    string newCroissant = Console.ReadLine();
+
+                    try
+                    {
+                        int newSourdoughAmount = int.Parse(newSourdough);
+                        int newFocacciaAmount = int.Parse(newFocaccia);
+                        int newDonutAmount = int.Parse(newDonut);
+                        int newCroissantAmount = int.Parse(newCroissant);
+                        breadOrder.SourdoughNum = newSourdoughAmount;
+                        breadOrder.FocacciaNum = newFocacciaAmount;
+                        pastryOrder.DonutNum = newDonutAmount;
+                        pastryOrder.CroissantNum = newCroissantAmount;
+
+                        ConfirmOrder(breadOrder, pastryOrder);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Apologies, please only enter numbers for your orders.");
+                        ConfirmOrder(breadOrder, pastryOrder);
+                    }
+
+                }
+                else
+                {
+                    Exit();
+                }
+            }
+
             static void Exit()
             {
                 Console.WriteLine(Banners.Bye);
+            }
+
+            static void GetTotal(Bread breadOrder, Pastry pastryOrder)
+            {
+                float breadPrice = Bread.CalculatePrice(breadOrder.SourdoughNum, 5, 3) + Bread.CalculatePrice(breadOrder.FocacciaNum, 4, 4, 0.75f);
+                float pastryPrice = Pastry.CalculatePrice(pastryOrder.DonutNum, 2, 4) + Pastry.CalculatePrice(pastryOrder.CroissantNum, 4, 3, 0.5f);
+
+                Console.WriteLine("*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~e");
+                Console.WriteLine($"Your bread order comes out to ${breadPrice} and your pastry order comes out to ${pastryPrice}.");
+                Console.WriteLine("This brings you to a grand total of...");
+                Console.WriteLine($"${breadPrice + pastryPrice}");
+                Exit();
             }
         }
     }
